@@ -1,5 +1,5 @@
 package gestorAplicacion.tareas;
 
-public class Evento {
-
+public class Estado {
+	
 }

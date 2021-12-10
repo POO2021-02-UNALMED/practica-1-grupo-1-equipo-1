@@ -1,5 +1,5 @@
 package gestorAplicacion.tareas;
 
-public class Actividad {
-
+public class Actividad extends Tarea{
+	String descripcion;
 }

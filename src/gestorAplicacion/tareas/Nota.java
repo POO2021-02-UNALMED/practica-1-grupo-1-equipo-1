@@ -1,5 +1,6 @@
 package gestorAplicacion.tareas;
 
-public class Nota {
-
+public class Nota {	
+	String titulo;
+	String decripcion;
 }
