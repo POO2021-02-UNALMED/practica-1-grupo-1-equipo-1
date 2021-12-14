@@ -23,6 +23,7 @@ public class Calendario {
 	
 	public void reagendarTarea(int pl, int dia, int tarea, String fecha) { //fecha: nueva fecha de entrega de la tarea
 		planificadores.get(pl).getDias().get(dia).tareas.get(tarea).setFechaDeEntrega(fecha);
+		this.planificadores.get(pl).posponerTarea(dia, tarea);
 	}
 	
 	public void agregarClase(Clase cl) { //cl: clase a agregar
@@ -30,14 +31,14 @@ public class Calendario {
 	}
 	
 	public void reagendarClase(int cl, String inicio, String Fin) { //cl: posicion de la clase en la lista, inicio:nueva hora inicio, fin:nueva hora fin
-		clases.get(cl).setHoraInicio();
-		clases.get(cl).setHoraFin();
+		clases.get(cl).setHoraInicio(inicio);
+		clases.get(cl).setHoraFin(Fin);
 	}
 	
 	public void reagendarClase(int cl, String inicio, String Fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
-		clases.get(cl).setHoraInicio();
-		clases.get(cl).setHoraFin();
-		clases.get(cl).setDia();
+		clases.get(cl).setHoraInicio(inicio);
+		clases.get(cl).setHoraFin(Fin);
+		clases.get(cl).setDia(dia);
 	}
 	
 	public void setNombre(String nombre) {
@@ -64,3 +65,5 @@ public class Calendario {
 		return clases;
 	}
 }
+
+//metodo de clase: mis calendarios, imprime el nombre de calendario con sus planificadores y nombre de las tareas (idea)
