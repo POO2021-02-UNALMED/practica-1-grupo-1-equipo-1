@@ -1,2 +1,4 @@
 /.gradle/
 /bin/
+/tmp
+/src/uiMain/Test.java
