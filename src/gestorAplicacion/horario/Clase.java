@@ -1,29 +1,29 @@
 package gestorAplicacion.horario;
 
 public class Clase {
-    private int horaInicio;
-    private int horaFin;
+    private String horaInicio;
+    private String horaFin;
     private String dia;
 
-    public Clase(int horaInicio, int horaFin, String dia) {
+    public Clase(String horaInicio, String horaFin, String dia) {
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.dia = dia;
     }
 
-    public void setHoraInicio(int inicio) {
+    public void setHoraInicio(String inicio) {
         horaInicio = inicio;
     }
 
-    public int getHoraInicio() {
+    public String getHoraInicio() {
         return horaInicio;
     }
 
-    public void setHoraFin(int fin) {
+    public void setHoraFin(String fin) {
         horaInicio = fin;
     }
 
-    public int getHoraFin() {
+    public String getHoraFin() {
         return horaFin;
     }
 

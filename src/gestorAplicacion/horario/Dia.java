@@ -35,17 +35,7 @@ public class Dia {
 		this.tareas = tareas;
 	}
 	
-	public String getTareas() { //imprime el titulo de las todas los objetos Tarea asociadas al objeto Dia
-		String t = "";
-		
-		for(int i=0; i < this.tareas.size(); i++) {
-			t += this.tareas.get(i).getTitulo();
-			
-			if(i != this.tareas.size()) {
-				t += "\n";
-			}
-		}
-		
-		return t;
+	public ArrayList<Tarea> getTareas() { //imprime el titulo de las todas los objetos Tarea asociadas al objeto Dia
+		return this.tareas;
 	}
 }

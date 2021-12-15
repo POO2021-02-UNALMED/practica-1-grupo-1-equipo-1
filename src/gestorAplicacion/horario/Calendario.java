@@ -70,3 +70,5 @@ public class Calendario implements Serializable{
 		return clases;
 	}
 }
+
+//metodo de clase: mis calendarios, imprime el nombre de calendario con sus planificadores y nombre de las tareas (idea)
