@@ -35,12 +35,12 @@ public class Calendario implements Serializable{
 		clases.add(cl);
 	}
 	
-	public void reagendarClase(int cl, int inicio, int fin) { //cl: posicion de la clase en la lista, inicio:nueva hora inicio, fin:nueva hora fin
+	public void reagendarClase(int cl, String inicio, String fin) { //cl: posicion de la clase en la lista, inicio:nueva hora inicio, fin:nueva hora fin
 		clases.get(cl).setHoraInicio(inicio);
 		clases.get(cl).setHoraFin(fin);
 	}
 	
-	public void reagendarClase(int cl, int inicio, int fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
+	public void reagendarClase(int cl, String inicio, String fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
 		clases.get(cl).setHoraInicio(inicio);
 		clases.get(cl).setHoraFin(fin);
 		clases.get(cl).setDia(dia);
