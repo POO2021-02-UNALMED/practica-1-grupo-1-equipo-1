@@ -1,14 +1,20 @@
 package gestorAplicacion.horario;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import gestorAplicacion.tareas.Tarea;
 
-public class Calendario {
+public class Calendario implements Serializable{
 	private String nombre;
 	private ArrayList<Planificador> planificadores;
 	private ArrayList<Clase> clases;
 	
+	public Calendario(String nombre) {
+		this.nombre = nombre;
+		this.planificadores = new ArrayList<Planificador>();
+		this.clases = new ArrayList<Clase>();
+	}
 	
 	public Calendario(String nombre, ArrayList<Planificador> planificadores, ArrayList<Clase> clases) {
 		this.nombre = nombre;
@@ -22,22 +28,22 @@ public class Calendario {
 	}
 	
 	public void reagendarTarea(int pl, int dia, int tarea, String fecha) { //fecha: nueva fecha de entrega de la tarea
-		planificadores.get(pl).getDias().get(dia).tareas.get(tarea).setFechaDeEntrega(fecha);
+		planificadores.get(pl).getDias().get(dia).tareas.get(tarea).setFechaEntrega(fecha);
 	}
 	
 	public void agregarClase(Clase cl) { //cl: clase a agregar
 		clases.add(cl);
 	}
 	
-	public void reagendarClase(int cl, String inicio, String Fin) { //cl: posicion de la clase en la lista, inicio:nueva hora inicio, fin:nueva hora fin
-		clases.get(cl).setHoraInicio();
-		clases.get(cl).setHoraFin();
+	public void reagendarClase(int cl, int inicio, int fin) { //cl: posicion de la clase en la lista, inicio:nueva hora inicio, fin:nueva hora fin
+		clases.get(cl).setHoraInicio(inicio);
+		clases.get(cl).setHoraFin(fin);
 	}
 	
-	public void reagendarClase(int cl, String inicio, String Fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
-		clases.get(cl).setHoraInicio();
-		clases.get(cl).setHoraFin();
-		clases.get(cl).setDia();
+	public void reagendarClase(int cl, int inicio, int fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
+		clases.get(cl).setHoraInicio(inicio);
+		clases.get(cl).setHoraFin(fin);
+		clases.get(cl).setDia(dia);
 	}
 	
 	public void setNombre(String nombre) {
