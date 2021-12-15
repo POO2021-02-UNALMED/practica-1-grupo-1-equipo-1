@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-//import java.io.Serializable;
 import java.util.ArrayList;
 
 public class ObjFileManager {
@@ -22,10 +21,10 @@ public class ObjFileManager {
             e.printStackTrace();
         }
     }
-    public static void saveObjToFile(ArrayList<Object> obj, String filePath, boolean saveObjects) {
-        ArrayList<Object> obj_ = new ArrayList<Object>();
-        try {
-            FileInputStream file = new FileInputStream(filePath);
+    public static void saveObjToFile(ArrayList<Object> obj, String filePath, boolean saveObjects) { //saveObjects tiene como objetivo preservar los 
+        ArrayList<Object> obj_ = new ArrayList<Object>();                                           //objetos que ya se encontraan guardados antes, 
+        try {                                                                                       //si es false se borra cualquier dato que se 
+            FileInputStream file = new FileInputStream(filePath);                                   //encontrara en el archivo antes
             ObjectInputStream in = new ObjectInputStream(file);
             try {
 				Object obj__ = in.readObject();
@@ -66,7 +65,7 @@ public class ObjFileManager {
         obj_.add(obj);
         saveObjToFile(obj_, filePath, true);
     }
-    public static ArrayList<Object> getObjFromFile(String filePath) {
+    public static ArrayList<Object> getObjFromFile(String filePath) { //Retorna un arrayList con todos los objetos de un archivo
         try {
             FileInputStream file = new FileInputStream(filePath);
             ObjectInputStream in = new ObjectInputStream(file);
@@ -92,7 +91,7 @@ public class ObjFileManager {
 		}
         return null;
     }
-    public static void open(String filePath, boolean saveObjects) {
+    public static void open(String filePath, boolean saveObjects) { //Abre un archivo para agregar objetos 1 a 1
         ArrayList<Object> ObjOutCache = null;
         if(saveObjects) {
             try {
@@ -132,7 +131,7 @@ public class ObjFileManager {
             e.printStackTrace();
         } 
     }
-    public static void close() {
+    public static void close() { //Cierra el archivo
         try {
             ObjOut.close();
             fileOut.close();
@@ -142,7 +141,7 @@ public class ObjFileManager {
             e.printStackTrace();
         } 
     }
-    public static void addObj(Object obj) {
+    public static void addObj(Object obj) { //Agrega un objeto al archivo elegido
         try {
             ObjOut.writeObject(obj);
         } catch (FileNotFoundException e) {
