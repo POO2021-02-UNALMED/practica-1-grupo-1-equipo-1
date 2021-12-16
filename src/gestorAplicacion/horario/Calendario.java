@@ -12,12 +12,6 @@ public class Calendario implements Serializable{
 	private ArrayList<Planificador> planificadores;
 	private ArrayList<Clase> clases;
 	
-	public Calendario(String nombre) {
-		this.nombre = nombre;
-		this.planificadores = new ArrayList<Planificador>();
-		this.clases = new ArrayList<Clase>();
-	}
-	
 	public Calendario(String nombre, ArrayList<Planificador> planificadores, ArrayList<Clase> clases) {
 		this.nombre = nombre;
 		this.planificadores = planificadores;
