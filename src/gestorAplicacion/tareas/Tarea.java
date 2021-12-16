@@ -2,11 +2,21 @@ package gestorAplicacion.tareas;
 import gestorAplicacion.horario.Asignatura; 
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public abstract class Tarea {
 	 public String titulo;
 	 Asignatura asignatura;
 	 String fechaEntrega;
+	 Estado estado=Estado.asignada;
+	 ArrayList<Nota> notas;
+	 
+	 Tarea(String titulo, Asignatura asignatura, String fechaEntrega){
+		 this.titulo = titulo;
+		 this.asignatura= asignatura;
+		 
+		 this.fechaEntrega = fechaEntrega;
+	 }
 	 
 	 public String getTitulo() {
 		return titulo;
@@ -38,14 +48,17 @@ public abstract class Tarea {
 	public void setNotas(ArrayList<Nota> notas) {
 		this.notas = notas;
 	}
-	Estado estado;
-	 ArrayList<Nota> notas;
+	
 	 
 	 
-	 void cambiarEstado() {}
-	 void agregarNota() {}
-	 void editarNota() {}
-	 void dividirTarea() {}
+	 abstract void cambiarEstado();
 	 
+	 
+	 void agregarNota(String titulo, String descripcion) {
+		 notas.add(new Nota(titulo, descripcion));
+	 }
+		
 }
+	 
+
  

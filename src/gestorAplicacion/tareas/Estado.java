@@ -1,5 +1,3 @@
 package gestorAplicacion.tareas;
 
-public class Estado {
-	
-}
+public enum Estado {asignada, enProceso, completada}
