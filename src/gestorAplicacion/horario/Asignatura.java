@@ -6,7 +6,7 @@ public class Asignatura {
     private String nombre;
     private ArrayList<Clase> clases;
 
-    Asignatura(String profesor, String nombre, ArrayList<Clase> clases) {
+    public Asignatura(String profesor, String nombre, ArrayList<Clase> clases) {
         this.profesor = profesor;
         this.nombre = nombre;
         this.clases = clases;
