@@ -9,7 +9,7 @@ public class Proyecto extends Tarea {
 	ArrayList<Actividad> actividades;
 	static Scanner sc = new Scanner(System.in);
 	
-	 Proyecto(String titulo, Asignatura asignatura, String fechaEntrega){
+	 public Proyecto(String titulo, Asignatura asignatura, String fechaEntrega){
 		 super(titulo, asignatura, fechaEntrega);
 	 }
 	 

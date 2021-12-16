@@ -23,8 +23,18 @@ public class Planificador {
 		this("Lista de Tareas", dias);
 	}
 	
-	public void posponerTarea(int dia, int tarea) {
-		this.dias.get(dia).tareas.get(tarea).cambiarEstado();
+	public void posponerTarea(String dia, String tarea, String fecha) {
+		for(int i= 0; i < dias.size(); i++) {
+			if(dias.get(i).getEtiqueta() == dia) {
+				Dia d = dias.get(i);
+				for(int j= 0; j < d.getTareas().size(); i++) {
+					if(d.getTareas().get(j).titulo == tarea) {
+						d.getTareas().get(j).setFechaEntrega(fecha);
+						return;
+					}
+				}
+			}
+		}
 	}
 	
 	public void agregarDia(Dia dia) {

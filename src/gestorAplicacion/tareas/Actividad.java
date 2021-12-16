@@ -6,7 +6,7 @@ public class Actividad extends Tarea{
 	
 	String descripcion;
 	
-	Actividad(String titulo, Asignatura asignatura, String fechaEntrega) {
+	public Actividad(String titulo, Asignatura asignatura, String fechaEntrega) {
 		super(titulo, asignatura, fechaEntrega);
 	}
 

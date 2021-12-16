@@ -14,7 +14,6 @@ public class Asistente {
 	private List<Clase> clases = new ArrayList<Clase> ();
 	private List<Dia> dias = new ArrayList<Dia> ();
 	private List<Tarea> tareas = new ArrayList<Tarea> ();
-	private List<Nota> notas = new ArrayList<Nota> ();
 	
 	public Asistente() {
 		
@@ -47,7 +46,7 @@ public class Asistente {
 		return plan;
 	}
 	
-	public Planificador buscarCalendario(int id) {
+	public Planificador buscarPlanificador(int id) {
 		Iterator<Planificador> iterator = planificadores.iterator();
 		while (iterator.hasNext()) {
 			Planificador plan = (Planificador) iterator.next();
@@ -77,11 +76,11 @@ public class Asistente {
 		return clase;
 	}
 	
-	public Clase buscarClase(String dia, String inicio, String fin) {
+	public Clase buscarClase(int id) {
 		Iterator<Clase> iterator = clases.iterator();
 		while (iterator.hasNext()) {
 			Clase clase = (Clase) iterator.next();
-			if(clase.dia == dia && clase.horaInicio == inicio && clase.horaFin == fin) return clase;
+			if(clase.id == id) return clase;
 		}
 		return null;
 	}
@@ -107,16 +106,10 @@ public class Asistente {
 		return null;
 	}
 	
-	public Proyecto nuevoProyecto() {
-		Proyecto proy = new Proyecto();
+	public Proyecto nuevoProyecto(String titulo, Asignatura asig, String fecha) {
+		Proyecto proy = new Proyecto(titulo, asig, fecha);
 		tareas.add(proy);
 		return proy;
-	}
-	
-	public Actividad nuevaActividad() {
-		Actividad act = new Actividad();
-		tareas.add(act);
-		return act;
 	}
 	
 	public Tarea buscarTarea(String titulo) {
@@ -126,15 +119,5 @@ public class Asistente {
 			if(t.titulo == titulo) return t;
 		}
 		return null;		
-	}
-	
-	public String listaCalendarios() {
-		Iterator<Calendario> iterator = calendarios.iterator();
-		StringBuffer lista = new StringBuffer ();
-		while (iterator.hasNext()) {
-			Calendario calen = (Calendario) iterator.next();
-			lista.append (calen.toString() + "\n");
-		}
-		return lista.toString();
 	}
 }
