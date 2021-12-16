@@ -2,18 +2,20 @@ package gestorAplicacion.horario;
 
 import java.util.ArrayList;
 
+//Con los objetos de esta clase los calendarios manejan las tareas asignadas a los dias
+
 public class Planificador {
-	private static int generadorId = 0; //ayuda a llevar una cuenta de los objetos creados(atributo de clase)
+	private static int generadorId = 0; //ayuda a llevar una cuenta de los objetos creados(atributo de clase) para asignar una Id distinta a todos automaticamente
 	private final int id; //id UNICA para reconocer el planificador
 	private String nombre; //nombre que el usuario quiera darle
-	private ArrayList<Dia> dias; //numero de dias que el usuario necesita para su planificacion
+	private ArrayList<Dia> dias; //dias en los que el usuario necesita tener sus tareas
 	
 	public Planificador(String nombre, ArrayList<Dia> dias) {
 		//constructor con todos los atributos
-		this.id = generadorId + 1; //El ID se genera segun se vallan creando los objetos
+		this.id = generadorId ; //El ID se genera segun se vallan creando los objetos
 		this.nombre = nombre;
 		this.dias = dias;
-		generadorId += 1;
+		generadorId += 1; //cada que se crea un objeto este modifica el metodo de clase generadorId
 	}
 	
 	public Planificador(ArrayList<Dia> dias) {
@@ -43,5 +45,9 @@ public class Planificador {
 	
 	public String getNombre() {
 		return nombre;
+	}
+	
+	public String toString() {
+		return "Planificador: " + this.nombre + " ID: " + this.id;
 	}
 }

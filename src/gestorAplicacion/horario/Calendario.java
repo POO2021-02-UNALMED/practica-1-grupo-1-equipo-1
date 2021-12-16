@@ -5,6 +5,8 @@ import java.io.Serializable;
 
 import gestorAplicacion.tareas.Tarea;
 
+//Esta clase es la base de toda la aplicacion puesto que de aqui es donde se implementan la mayoria de funcionalidades
+
 public class Calendario implements Serializable{
 	private String nombre;
 	private ArrayList<Planificador> planificadores;
