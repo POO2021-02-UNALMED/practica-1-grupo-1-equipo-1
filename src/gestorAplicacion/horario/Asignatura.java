@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Asignatura {
     private String profesor;
-    private String nombre;
+    public String nombre;
     private ArrayList<Clase> clases;
 
     public Asignatura(String profesor, String nombre, ArrayList<Clase> clases) {

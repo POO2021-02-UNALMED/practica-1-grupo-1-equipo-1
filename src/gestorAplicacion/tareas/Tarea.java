@@ -4,7 +4,7 @@ import gestorAplicacion.horario.Asignatura;
 import java.util.ArrayList;
 
 public abstract class Tarea {
-	 String titulo;
+	 public String titulo;
 	 Asignatura asignatura;
 	 String fechaEntrega;
 	 

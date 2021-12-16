@@ -1,9 +1,9 @@
 package gestorAplicacion.horario;
 
 public class Clase {
-    private String horaInicio;
-    private String horaFin;
-    private String dia;
+    public String horaInicio;
+    public String horaFin;
+    public String dia;
 
     public Clase(String horaInicio, String horaFin, String dia) {
         this.horaInicio = horaInicio;

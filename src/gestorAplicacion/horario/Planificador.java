@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Planificador {
 	private static int generadorId = 0; //ayuda a llevar una cuenta de los objetos creados(atributo de clase) para asignar una Id distinta a todos automaticamente
-	private final int id; //id UNICA para reconocer el planificador
+	public final int id; //id UNICA para reconocer el planificador
 	private String nombre; //nombre que el usuario quiera darle
 	private ArrayList<Dia> dias; //dias en los que el usuario necesita tener sus tareas
 	

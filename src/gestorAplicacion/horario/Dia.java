@@ -7,7 +7,7 @@ import gestorAplicacion.tareas.Tarea;
 //En los objetos de esta clase se guardaran las tareas a realizar durante este dia
 
 public class Dia {
-	private String etiqueta; //nombre-descripcion que el usuario quiera dar al dia EJ: "Dia de trabajo"
+	public String etiqueta; //nombre-descripcion que el usuario quiera dar al dia EJ: "Dia de trabajo"
 	protected ArrayList<Tarea> tareas; //lista de tareas correspondiente al dia
 	
 	public Dia(String etiqueta, ArrayList<Tarea> tareas) { //constructor con etiqueta y tarea
