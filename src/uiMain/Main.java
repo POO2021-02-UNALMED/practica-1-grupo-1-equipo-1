@@ -64,7 +64,7 @@ public class Main {
 		int c = (int) readlong();
 		ArrayList <Clase> clase = new ArrayList<Clase> ();
 		
-		for(int i = 0; i < x+1; i ++) {
+		for(int i = 0; i < c+1; i ++) {
 			System.out.print ("Insertar Id de la clase que deseas agregar: ");
 			int id = (int) readlong();
 			Clase cl = asist.buscarClase(id);
@@ -121,8 +121,12 @@ public class Main {
 		String fin = readln();
 		System.out.print ("Dia de la clase(nombre del dia): ");
 		String dia =  readln();
+		System.out.print ("Ingrese nombre de la asignatura asociada: ");
+		String asig = readln();
+		Asignatura as = asist.buscarAsignatura(asig);
 		
-		asist.nuevaClase(inicio, fin, dia);
+		asist.nuevaClase(inicio, fin, dia, as);
+		
 	}
 	
 	static void nuevoProyecto(Asistente asist) {

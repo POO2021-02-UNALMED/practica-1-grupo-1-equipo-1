@@ -70,8 +70,8 @@ public class Asistente {
 		return null;
 	}
 	
-	public Clase nuevaClase(String Inicio, String Fin, String dia) {
-		Clase clase = new Clase(Inicio, Fin, dia);
+	public Clase nuevaClase(String Inicio, String Fin, String dia, Asignatura asig) {
+		Clase clase = new Clase(Inicio, Fin, dia, asig);
 		clases.add(clase);
 		return clase;
 	}
