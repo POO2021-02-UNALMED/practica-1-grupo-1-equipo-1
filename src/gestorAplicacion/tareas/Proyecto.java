@@ -35,7 +35,7 @@ public class Proyecto extends Tarea {
 		}
 		
 	}
-	
+	 
 	public void dividirTarea(int numeroDeActividades) {
 		for(int i=0; i<numeroDeActividades;i++) {
 			System.out.println("Ingresa el titulo de la actividad");

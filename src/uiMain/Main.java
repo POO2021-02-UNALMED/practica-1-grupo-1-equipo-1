@@ -1,6 +1,7 @@
 package uiMain;
 
 import java.util.ArrayList;
+import BaseDatos.Serializador;
 import java.util.Scanner;
 
 import gestorAplicacion.horario.*;
@@ -23,7 +24,6 @@ public class Main {
 		
 		do {
 			System.out.println("¿Que operacion deseas realizar?");
-			System.out.println(" 0: Salir del programa");
 			System.out.println(" 1: Crear Calendario");
 			System.out.println(" 2: Crear Planificador");
 			System.out.println(" 3: Crear Asignatura");
@@ -33,6 +33,7 @@ public class Main {
 			System.out.println(" 7: Dividir tarea");
 			System.out.println(" 8: Agregar nota");
 			System.out.println(" 9: Mostrar calendarios");
+			System.out.println(" 10: Terminar");
 			opcion = (int) readlong ();
 			
 			switch (opcion) {
@@ -45,6 +46,7 @@ public class Main {
 				case 7: dividirProyecto(asist); break;
 				case 8: crearNota(asist); break;
 				case 9: mostrarCalendarios(asist);break;
+				case 10: salirDelSistema(asist); break;
 			}
 		} while (opcion != 0);
 	}
@@ -186,12 +188,10 @@ public class Main {
 		int x = (int) readlong();
 		
 		if(x==0) {
-			Dia day = new Dia(etiqueta, fecha);
-			
 			System.out.println("Inserte el id del planificador al que desea ingresar este dia");
 			int nombrePlanificador = (int)readlong();
-			Planificador plan = asist.buscarPlanificador(nombrePlanificador);
-			plan.agregarDia(day);
+			
+			asist.nuevoDia(etiqueta, fecha, nombrePlanificador);
 			return;
 		
 			
@@ -241,6 +241,13 @@ public class Main {
 	
 	static void mostrarCalendarios(Asistente asist) {
 		asist.mostrarCalendarios();
+		
+	}
+	
+	private static void salirDelSistema(Asistente asist) {
+		System.out.println("Vualva pronto");
+		Serializador.serializar(asist);
+		System.exit(0);
 	}
 	
 	

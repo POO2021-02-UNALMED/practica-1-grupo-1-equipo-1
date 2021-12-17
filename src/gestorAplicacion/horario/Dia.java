@@ -8,6 +8,10 @@ import gestorAplicacion.tareas.Tarea;
 //En los objetos de esta clase se guardaran las tareas a realizar durante este dia
 
 public class Dia implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2770582190970597350L;
 	public String etiqueta; //nombre-descripcion que el usuario quiera dar al dia EJ: "Dia de trabajo"
 	protected ArrayList<Tarea> tareas; //lista de tareas correspondiente al dia
 	private String fecha;

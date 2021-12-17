@@ -8,11 +8,13 @@ import gestorAplicacion.tareas.Tarea;
 //Esta clase es la base de toda la aplicacion puesto que de aqui es donde se implementan la mayoria de funcionalidades
 
 public class Calendario implements Serializable{
+	
+	
+	private static final long serialVersionUID = -5027714557234026572L;
 	public String nombre;
 	private ArrayList<Planificador> planificadores;
 	private ArrayList<Clase> clases;
-	private static ArrayList<Calendario> calendarios=new ArrayList<Calendario>();
-	
+	public static ArrayList<Calendario> calendarios=new ArrayList<Calendario>();
 	public Calendario(String nombre, ArrayList<Planificador> planificadores, ArrayList<Clase> clases) {
 		this.nombre = nombre;
 		this.planificadores = planificadores;
@@ -30,19 +32,21 @@ public class Calendario implements Serializable{
 	
 	public static String mostrarCalendarios() {
 		
-		String mostrar="--------------------\n";
+		String mostrar="--------------------\n\n";
 		for(int i=0; i<calendarios.size();i++) {
 			mostrar+=calendarios.get(i).getNombre()+"\n";
 			
-			for(int j=0; j<calendarios.get(i).planificadores.size();i++) {
+			for(int j=0; j<calendarios.get(i).planificadores.size();j++) {
 				mostrar+="--"+ calendarios.get(i).planificadores.get(j).toString() + "\n";
+				System.out.println(calendarios.get(i).planificadores.get(j).getDias().size());
 				mostrar+=calendarios.get(i).planificadores.get(j).mostrarDias();
 			}
+			mostrar+="\n----------------\n\n";
 		}
 		
 		
 		
-		return "asdfas";
+		return mostrar;
 	}
 	
 	public void agregarTarea(int pl, int dia, Tarea tarea) { // pl: posicion planificador en la lista, dia: posicion dia en la lista, tarea: tarea a agregar
@@ -94,6 +98,10 @@ public class Calendario implements Serializable{
 	
 	public ArrayList<Clase> getClases() {
 		return clases;
+	}
+	
+	public String toString() {
+		return this.nombre;
 	}
 }
 

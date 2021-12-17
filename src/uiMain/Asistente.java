@@ -1,5 +1,6 @@
 package uiMain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -7,7 +8,14 @@ import java.util.List;
 import gestorAplicacion.horario.*;
 import gestorAplicacion.tareas.*;
 
-public class Asistente {
+import BaseDatos.deserializador;
+
+public class Asistente implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private List<Calendario> calendarios = new ArrayList<Calendario> ();
 	private List<Planificador> planificadores = new ArrayList<Planificador> ();
 	private List<Asignatura> asignaturas = new ArrayList<Asignatura> ();
@@ -16,7 +24,7 @@ public class Asistente {
 	private List<Tarea> tareas = new ArrayList<Tarea> ();
 	
 	public Asistente() {
-		
+		deserializador.deserializar(this);
 	}
 	
 	public Calendario crearCalendario(String nombre) {
@@ -37,7 +45,7 @@ public class Asistente {
 		Iterator<Calendario> iterator = calendarios.iterator();
 		while (iterator.hasNext()) {
 			Calendario calen = (Calendario) iterator.next();
-			if(calen.nombre == nombre) return calen;
+			if(calen.nombre.equals(nombre)) return calen;
 		}
 		return null;
 	}
@@ -65,7 +73,7 @@ public class Asistente {
 		Iterator<Planificador> iterator = planificadores.iterator();
 		while (iterator.hasNext()) {
 			Planificador plan = (Planificador) iterator.next();
-			if(plan.id == id) return plan;
+			if(plan.getId() == id) return plan;
 		}
 		return null;
 	}
@@ -80,7 +88,7 @@ public class Asistente {
 		Iterator<Asignatura> iterator = asignaturas.iterator();
 		while (iterator.hasNext()) {
 			Asignatura asig = (Asignatura) iterator.next();
-			if(asig.nombre == nombre) return asig;
+			if(asig.nombre.equals(nombre)) return asig;
 		}
 		return null;
 	}
@@ -112,8 +120,14 @@ public class Asistente {
 		return dia;
 	}
 	
-	public Dia nuevoDia(String etiqueta, String fecha) {
+	public Dia nuevoDia(String etiqueta, String fecha, int plan) {
 		Dia dia = new Dia(etiqueta, fecha);
+		for(int i=0;i<planificadores.size();i++) {
+			if(planificadores.get(i).getId()==plan) {
+				planificadores.get(i).agregarDia(dia);
+				System.out.println(planificadores.get(i).getDias().size());
+			}
+		}
 		dias.add(dia);
 		return dia;
 	}
@@ -123,10 +137,15 @@ public class Asistente {
 		Iterator<Dia> iterator = dias.iterator();
 		while (iterator.hasNext()) {
 			Dia dia = (Dia) iterator.next();
-			if(dia.etiqueta == etiqueta) return dia;
+			if(dia.etiqueta.equals(etiqueta)) return dia;
 		}
 		return null;
 	}
+	
+	public void ingresarDia(Dia dia, int plan) {
+		
+	}
+	
 	
 	public Proyecto nuevoProyecto(String titulo, Asignatura asig, String fecha) {
 		Proyecto proy = new Proyecto(titulo, asig, fecha);
@@ -138,7 +157,7 @@ public class Asistente {
 		Iterator<Tarea> iterator = tareas.iterator();
 		while (iterator.hasNext()) {
 			Tarea t = (Tarea) iterator.next();
-			if(t.titulo == titulo) return t;
+			if(t.titulo.equals(titulo)) return t;
 		}
 		return null;		
 	}
@@ -153,11 +172,81 @@ public class Asistente {
 	}
 	
 	
-	
 	public void mostrarCalendarios() {
-		System.out.println(Calendario.mostrarCalendarios()); 
+		String mostrar="-------------------------\n";
+		for(int i=0;i<this.calendarios.size();i++) {
+
+			Calendario cal = calendarios.get(i);
+			
+			mostrar+=cal.getNombre()+"\n";
+			for(int j=0;j<cal.getPlanificadores().size();j++) {
+				Planificador plan = cal.getPlanificadores().get(j);
+				mostrar+="--"+plan.toString()+"\n";
+				System.out.println(plan.getDias().size());
+				for(int k=0;k<plan.getDias().size();k++) {
+					Dia dia=plan.getDias().get(k);
+					mostrar+="----"+dia.getEtiqueta()+"\n";
+				}
+			}
+			
+		
+			
+		}
+		System.out.println(mostrar);
 	}
 	
 	
+	
+	
+	
+	public List<Calendario> getCalendarios(){
+		return  calendarios;
+	}
+
+	public List<Planificador> getPlanificadores() {
+		// TODO Auto-generated method stub
+		return planificadores;
+	}
+
+	public List<Dia> getDias() {
+		return dias;
+	}
+	public List<Asignatura> getAsignaturas() {
+		return asignaturas;
+	}
+	public List<Clase> getClases() {
+		return clases;
+	}
+	public List<Tarea> getTareas() {
+		return tareas;
+	}
+	
+	
+	
+	
+	
+	
+	public void setCalendarios(List<Calendario> readObject) {
+		this.calendarios = readObject;
+		Calendario.calendarios = (ArrayList<Calendario>) readObject;
+	}
+
+	public void setPlanificadores(List<Planificador> readObject) {
+		this.planificadores = readObject;
+	}
+	public void setAsignaturas(List<Asignatura> readObject) {
+		this.asignaturas = readObject;
+	}
+	public void setClases(List<Clase> readObject) {
+		this.clases = readObject;
+	}
+	public void setDias(List<Dia> readObject) {
+		this.dias = readObject;
+	}
+	public void setTareas(List<Tarea> readObject) {
+		this.tareas = readObject;
+	}
+	
+
 
 }
