@@ -1,6 +1,7 @@
 package gestorAplicacion.horario;
+import java.io.Serializable;
 
-public class Clase {
+public class Clase implements Serializable{
 	private static int generadorId = 0;
 	public final int id;
     public String horaInicio;

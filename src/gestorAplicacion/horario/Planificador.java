@@ -1,10 +1,10 @@
 package gestorAplicacion.horario;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //Con los objetos de esta clase los calendarios manejan las tareas asignadas a los dias
 
-public class Planificador {
+public class Planificador implements Serializable{
 	private static int generadorId = 0; //ayuda a llevar una cuenta de los objetos creados(atributo de clase) para asignar una Id distinta a todos automaticamente
 	public final int id; //id UNICA para reconocer el planificador
 	private String nombre; //nombre que el usuario quiera darle
@@ -57,7 +57,7 @@ public class Planificador {
 		return nombre;
 	}
 
-	public ArrayList<Float> medidorCarga() {
+	public ArrayList<Float> medidorCarga() { //Esta devuelve en el orden de los dias del arreglo de planificador la carga de cada uno
 		final int mult = 3;
 		ArrayList<Float> params = new ArrayList<Float>();
 		for(Dia d : dias) {
@@ -78,7 +78,7 @@ public class Planificador {
 		return params;
 	}
 
-	public float medidorCarga(String fecha) {
+	public float medidorCarga(String fecha) { //Devuelve la carga de trabajo en una fecha concreta (devuelve un float, no tiene que ver con los dias que están guardados en el planificador, sino con una fecha especifica)
 		final int mult = 3;
 		float dayLoad = 0.0f;
 		String dateS[] = fecha.split("-");

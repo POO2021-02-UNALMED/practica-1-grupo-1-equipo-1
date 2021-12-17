@@ -1,10 +1,11 @@
 package gestorAplicacion.tareas;
 import gestorAplicacion.horario.Asignatura; 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Tarea {
+public abstract class Tarea implements Serializable{
 	 public String titulo;
 	 Asignatura asignatura;
 	 String fechaEntrega;
