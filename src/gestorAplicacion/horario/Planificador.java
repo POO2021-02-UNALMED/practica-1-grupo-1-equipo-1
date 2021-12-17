@@ -58,18 +58,18 @@ public class Planificador implements Serializable{
 	}
 
 	public ArrayList<Float> medidorCarga() { //Esta devuelve en el orden de los dias del arreglo de planificador la carga de cada uno
-		final int mult = 3;
+		final int mult = 3; //El valor de esta constante indica la importancia de los dias siguientes
 		ArrayList<Float> params = new ArrayList<Float>();
 		for(Dia d : dias) {
 			float dayLoad = (float)d.tareas.size();
 			String dateS[] = d.getFecha().split("-");
-			int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12;
+			int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12; //Convierte la fecha de un dia en un entero para ser utilizada facilmente a la hora de obtener la carga de los dias
 			for(Dia d_ : dias) {
-				if(d != d_) {
-					String dateS_[] = d_.getFecha().split("-");
-					int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12;
-					if(date_ >= date) {
-						dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));
+				if(d != d_) { //Evita que se duplique un mismo dia
+					String dateS_[] = d_.getFecha().split("-"); 
+					int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12; //Convierte la fecha de otros dias para utlizarla en el calculo de la carga
+					if(date_ >= date) { //Permite seleccionar solo los dias con fechas posteriores al dia deceado
+						dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));//Toma el numero de tareas de un dia posterior y lo divide por el cuadrado de los dias entre el dia evaluado y este, ademas de multiplicar el resultado por la constante de importancia
 					}
 				}
 			}
