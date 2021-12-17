@@ -1,12 +1,13 @@
 package gestorAplicacion.horario;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 import gestorAplicacion.tareas.Tarea;
 
 //En los objetos de esta clase se guardaran las tareas a realizar durante este dia
 
-public class Dia {
+public class Dia implements Serializable{
 	public String etiqueta; //nombre-descripcion que el usuario quiera dar al dia EJ: "Dia de trabajo"
 	protected ArrayList<Tarea> tareas; //lista de tareas correspondiente al dia
 	private String fecha;

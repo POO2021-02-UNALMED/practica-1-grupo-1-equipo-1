@@ -1,10 +1,10 @@
 package gestorAplicacion.horario;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 //Con los objetos de esta clase los calendarios manejan las tareas asignadas a los dias
 
-public class Planificador {
+public class Planificador implements Serializable{
 	private static int generadorId = 0; //ayuda a llevar una cuenta de los objetos creados(atributo de clase) para asignar una Id distinta a todos automaticamente
 	public final int id; //id UNICA para reconocer el planificador
 	private String nombre; //nombre que el usuario quiera darle
@@ -64,19 +64,19 @@ public class Planificador {
 		return nombre;
 	}
 
-	public ArrayList<Float> medidorCarga() {
-		final int mult = 3;
+	public ArrayList<Float> medidorCarga() { //Esta devuelve en el orden de los dias del arreglo de planificador la carga de cada uno
+		final int mult = 3; //El valor de esta constante indica la importancia de los dias siguientes
 		ArrayList<Float> params = new ArrayList<Float>();
 		for(Dia d : dias) {
 			float dayLoad = (float)d.tareas.size();
 			String dateS[] = d.getFecha().split("-");
-			int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12;
+			int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12; //Convierte la fecha de un dia en un entero para ser utilizada facilmente a la hora de obtener la carga de los dias
 			for(Dia d_ : dias) {
-				if(d != d_) {
-					String dateS_[] = d_.getFecha().split("-");
-					int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12;
-					if(date_ >= date) {
-						dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));
+				if(d != d_) { //Evita que se duplique un mismo dia
+					String dateS_[] = d_.getFecha().split("-"); 
+					int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12; //Convierte la fecha de otros dias para utlizarla en el calculo de la carga
+					if(date_ >= date) { //Permite seleccionar solo los dias con fechas posteriores al dia deceado
+						dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));//Toma el numero de tareas de un dia posterior y lo divide por el cuadrado de los dias entre el dia evaluado y este, ademas de multiplicar el resultado por la constante de importancia
 					}
 				}
 			}
@@ -85,7 +85,7 @@ public class Planificador {
 		return params;
 	}
 
-	public float medidorCarga(String fecha) {
+	public float medidorCarga(String fecha) { //Devuelve la carga de trabajo en una fecha concreta (devuelve un float, no tiene que ver con los dias que están guardados en el planificador, sino con una fecha especifica)
 		final int mult = 3;
 		float dayLoad = 0.0f;
 		String dateS[] = fecha.split("-");

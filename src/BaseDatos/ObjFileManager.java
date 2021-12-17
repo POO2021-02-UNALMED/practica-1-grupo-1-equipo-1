@@ -38,7 +38,7 @@ public class ObjFileManager {
             in.close();
             file.close();
         } catch (EOFException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
@@ -60,7 +60,7 @@ public class ObjFileManager {
             e.printStackTrace();
         } 
     }
-    public static void saveObjToFile(Object obj, String filePath) {
+    public static void saveObjToFile(Object obj, String filePath) { //Guarda un unico objeto en el archivo especificado
         ArrayList<Object> obj_ = new ArrayList<Object>();
         obj_.add(obj);
         saveObjToFile(obj_, filePath, true);
@@ -74,10 +74,10 @@ public class ObjFileManager {
 				Object obj__ = in.readObject();
 				while(obj__ != null) {
 					obj_.add(obj__);
-					obj__ = in.readObject();
+                    obj__ = in.readObject();
 				}
 			} catch (EOFException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 			}
             in.close();
             file.close();
@@ -91,7 +91,7 @@ public class ObjFileManager {
 		}
         return null;
     }
-    public static void open(String filePath, boolean saveObjects) { //Abre un archivo para agregar objetos 1 a 1
+    public static void open(String filePath, boolean saveObjects) { //Abre un archivo para agregar objetos 1 a 1(Se mantiene abierto hasta que se llama close())
         ArrayList<Object> ObjOutCache = null;
         if(saveObjects) {
             try {
@@ -131,7 +131,7 @@ public class ObjFileManager {
             e.printStackTrace();
         } 
     }
-    public static void close() { //Cierra el archivo
+    public static void close() { //Cierra el archivo abierto por open(...)
         try {
             ObjOut.close();
             fileOut.close();
@@ -141,7 +141,7 @@ public class ObjFileManager {
             e.printStackTrace();
         } 
     }
-    public static void addObj(Object obj) { //Agrega un objeto al archivo elegido
+    public static void addObj(Object obj) { //Agrega un objeto al archivo que se abrió con open(...)
         try {
             ObjOut.writeObject(obj);
         } catch (FileNotFoundException e) {

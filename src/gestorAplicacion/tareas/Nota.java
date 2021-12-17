@@ -1,6 +1,7 @@
 package gestorAplicacion.tareas;
+import java.io.Serializable;
 
-public class Nota {	
+public class Nota implements Serializable{	
 	String titulo;
 	String decripcion;
 	

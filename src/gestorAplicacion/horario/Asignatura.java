@@ -1,7 +1,8 @@
 package gestorAplicacion.horario;
 import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Asignatura {
+public class Asignatura implements Serializable{
     private String profesor;
     public String nombre;
     private ArrayList<Clase> clases;
