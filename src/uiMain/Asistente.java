@@ -19,6 +19,14 @@ public class Asistente {
 		
 	}
 	
+	public Calendario crearCalendario(String nombre) {
+		Calendario calen = new Calendario(nombre);
+		calendarios.add(calen);
+		return calen;
+	}
+	
+	
+	
 	public Calendario nuevoCalendario(String nombre, ArrayList<Planificador> planificadores, ArrayList<Clase> clases) {
 		Calendario calen = new Calendario(nombre, planificadores, clases);
 		calendarios.add(calen);
@@ -36,6 +44,13 @@ public class Asistente {
 	
 	public Planificador nuevoPlanificador(String nombre, ArrayList<Dia> dias) {
 		Planificador plan = new Planificador(nombre, dias);
+		planificadores.add(plan);
+		return plan;
+	}
+	
+	
+	public Planificador nuevoPlanificador(String nombre) {
+		Planificador plan = new Planificador(nombre);
 		planificadores.add(plan);
 		return plan;
 	}
@@ -85,17 +100,24 @@ public class Asistente {
 		return null;
 	}
 	
-	public Dia nuevoDia(String etiqueta, ArrayList<Tarea> tareas) {
-		Dia dia = new Dia(etiqueta, tareas);
+	public Dia nuevoDia(String etiqueta, ArrayList<Tarea> tareas, String fecha) {
+		Dia dia = new Dia(etiqueta, tareas, fecha);
 		dias.add(dia);
 		return dia;
 	}
 	
-	public Dia nuevoDia(ArrayList<Tarea> tareas) {
-		Dia dia = new Dia(tareas);
+	public Dia nuevoDia(ArrayList<Tarea> tareas, String fecha) {
+		Dia dia = new Dia(tareas, fecha);
 		dias.add(dia);
 		return dia;
 	}
+	
+	public Dia nuevoDia(String etiqueta, String fecha) {
+		Dia dia = new Dia(etiqueta, fecha);
+		dias.add(dia);
+		return dia;
+	}
+	
 	
 	public Dia buscarDia(String etiqueta) {
 		Iterator<Dia> iterator = dias.iterator();
@@ -120,4 +142,6 @@ public class Asistente {
 		}
 		return null;		
 	}
+	
+
 }

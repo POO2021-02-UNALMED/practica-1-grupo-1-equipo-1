@@ -51,6 +51,11 @@ public class Main {
 		String nombre = readln();
 		System.out.print("Inserte el numero de planificadores a agregar: ");
 		int x = (int) readlong();
+		if(x==0) {
+			asist.crearCalendario(nombre);
+			return;
+		}
+		
 		ArrayList<Planificador> plans = new ArrayList<Planificador> ();
 		
 		for(int i = 0; i < x+1; i ++) {
@@ -74,11 +79,26 @@ public class Main {
 		asist.nuevoCalendario(nombre, plans, clase);
 	}
 	
+	
+	
+	
 	static void nuevoPlanificador(Asistente asist) {
 		System.out.print ("Nombre del planificador(para nombre por defecto escribe def): ");
 		String nombre = readln();
 		System.out.print("Inserte numero de dias a agregar: ");
 		int x = (int) readlong();
+		
+		if(x==0) {
+			Planificador plan = asist.nuevoPlanificador(nombre);
+			
+			System.out.println("Inserte el nombre del calendario al que desea ingresar este planeador");
+			String nombreCalendario = readln();
+			Calendario calen = asist.buscarCalendario(nombreCalendario);
+			calen.agregarPlanificador(plan);
+			return;
+		}
+		
+		
 		ArrayList<Dia> dias = new ArrayList<Dia> ();
 		
 		for(int i = 0; i < x+1; i ++) {
@@ -94,6 +114,8 @@ public class Main {
 			asist.nuevoPlanificador(dias);
 		}
 	}
+	
+	
 	
 	static void nuevaAsignatura(Asistente asist) {
 		System.out.print ("Nombre del profesor: ");
@@ -138,14 +160,40 @@ public class Main {
 		System.out.print ("Fecha de entrega del proyecto: ");
 		String fecha =  readln();
 		
-		asist.nuevoProyecto(titulo, asig, fecha);
+		
+		Proyecto proy = asist.nuevoProyecto(titulo, asig, fecha);
+		
+		
+		System.out.println("Ingrese la etiqueta del dia al que desea ingresar el proyecto");
+		
+		String nombreDia = readln();
+		
+		asist.buscarDia(nombreDia).agregarTarea(proy);
+		
 	}
+	
 	
 	static void nuevoDia(Asistente asist) {
 		System.out.print ("Etiqueta o nombre del dia (para nombre por defecto escribir def): ");
 		String etiqueta = readln();
+		System.out.println("Ingrese la fecha del dia");
+		String fecha = readln();
 		System.out.print("Inserte el numero de tareas agregar: ");
 		int x = (int) readlong();
+		
+		if(x==0) {
+			Dia day = new Dia(etiqueta, fecha);
+			
+			System.out.println("Inserte el id del planificador al que desea ingresar este dia");
+			int nombrePlanificador = (int)readlong();
+			Planificador plan = asist.buscarPlanificador(nombrePlanificador);
+			plan.agregarDia(day);
+			return;
+		
+			
+		}
+		
+		
 		ArrayList<Tarea> tareas = new ArrayList<Tarea> ();
 		
 		for(int i = 0; i < x+1; i ++) {
@@ -155,9 +203,9 @@ public class Main {
 			tareas.add(tarea);
 		}
 		if(etiqueta != "def") {
-			asist.nuevoDia(etiqueta, tareas);
+			asist.nuevoDia(etiqueta, tareas, fecha);
 		} else {
-			asist.nuevoDia(tareas);
+			asist.nuevoDia(tareas, fecha);
 		}
 	}
 }

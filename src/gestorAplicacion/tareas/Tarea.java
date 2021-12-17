@@ -15,7 +15,6 @@ public abstract class Tarea implements Serializable{
 	 Tarea(String titulo, Asignatura asignatura, String fechaEntrega){
 		 this.titulo = titulo;
 		 this.asignatura= asignatura;
-		 
 		 this.fechaEntrega = fechaEntrega;
 	 }
 	 

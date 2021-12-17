@@ -11,10 +11,6 @@ public class Actividad extends Tarea{
 	}
 
 
-
-	
-
-	
 	
 	@Override
 	void cambiarEstado() {
