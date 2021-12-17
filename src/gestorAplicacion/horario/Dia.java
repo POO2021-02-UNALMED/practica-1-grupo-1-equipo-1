@@ -11,6 +11,13 @@ public class Dia {
 	protected ArrayList<Tarea> tareas; //lista de tareas correspondiente al dia
 	private String fecha;
 	
+	public Dia(String etiqueta, String fecha) {
+		this.etiqueta = etiqueta;
+		this.tareas = new ArrayList<Tarea>();
+		this.fecha = fecha;
+	}
+	
+	
 	public String getFecha() {
 		return fecha;
 	}
@@ -19,13 +26,14 @@ public class Dia {
 		this.fecha = fecha;
 	}
 
-	public Dia(String etiqueta, ArrayList<Tarea> tareas) { //constructor con etiqueta y tarea
+	public Dia(String etiqueta, ArrayList<Tarea> tareas, String fecha) { //constructor con etiqueta y tarea
 		this.etiqueta = etiqueta;
 		this.tareas = tareas;
+		this.fecha = fecha;
 	}
 	
-	public Dia(ArrayList<Tarea> tareas) { //contructor con etiqueta por defecto
-		this("Dia", tareas);
+	public Dia(ArrayList<Tarea> tareas, String fecha) { //contructor con etiqueta por defecto
+		this("Dia", tareas, fecha);
 	}
 	
 	public void setEtiqueta(String etiqueta) {
@@ -42,5 +50,9 @@ public class Dia {
 	
 	public ArrayList<Tarea> getTareas() { 
 		return this.tareas;
+	}
+	
+	public void agregarTarea(Tarea tarea) {
+		this.tareas.add(tarea);
 	}
 }

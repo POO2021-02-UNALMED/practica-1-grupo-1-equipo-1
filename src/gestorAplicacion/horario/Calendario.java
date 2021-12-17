@@ -16,7 +16,12 @@ public class Calendario implements Serializable{
 		this.nombre = nombre;
 		this.planificadores = planificadores;
 		this.clases = clases;
-		
+	}
+	
+	public Calendario(String nombre) {
+		this.nombre=nombre;
+		this.planificadores = new ArrayList<Planificador>(); 
+		this.clases = new ArrayList<Clase>();
 	}
 	
 	public void agregarTarea(int pl, int dia, Tarea tarea) { // pl: posicion planificador en la lista, dia: posicion dia en la lista, tarea: tarea a agregar
@@ -52,6 +57,10 @@ public class Calendario implements Serializable{
 	
 	public void setPlanificadores(ArrayList<Planificador> planificadores) {
 		this.planificadores = planificadores;
+	}
+	
+	public void agregarPlanificador(Planificador plan) {
+		this.planificadores.add(plan);
 	}
 	
 	public ArrayList<Planificador> getPlanificadores() {

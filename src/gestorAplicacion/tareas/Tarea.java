@@ -14,7 +14,6 @@ public abstract class Tarea {
 	 Tarea(String titulo, Asignatura asignatura, String fechaEntrega){
 		 this.titulo = titulo;
 		 this.asignatura= asignatura;
-		 
 		 this.fechaEntrega = fechaEntrega;
 	 }
 	 

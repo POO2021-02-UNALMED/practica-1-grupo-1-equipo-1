@@ -23,6 +23,13 @@ public class Planificador {
 		this("Lista de Tareas", dias);
 	}
 	
+	public Planificador(String nombre){
+		this.nombre = nombre;
+		this.id = generadorId;
+		this.dias = new ArrayList<Dia>();
+		generadorId+=1;
+	}
+	
 	public void posponerTarea(String dia, String tarea, String fecha) {
 		for(int i= 0; i < dias.size(); i++) {
 			if(dias.get(i).getEtiqueta() == dia) {
