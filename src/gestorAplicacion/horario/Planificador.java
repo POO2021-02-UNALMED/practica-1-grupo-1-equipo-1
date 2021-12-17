@@ -103,4 +103,36 @@ public class Planificador implements Serializable{
 	public String toString() {
 		return "Planificador: " + this.nombre + " ID: " + this.id;
 	}
+	
+	
+	public String mostrarDias() {
+		String mostrar="";
+		for(int i=0; i<dias.size();i++) {
+			mostrar+="----"+dias.get(i).etiqueta + "\n";
+			mostrar+=dias.get(i).mostrarTareas();
+		}
+		return mostrar;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

@@ -6,7 +6,7 @@ public class Clase implements Serializable{
 	public final int id;
     public String horaInicio;
     public String horaFin;
-    public String dia;
+    public Dia dia;
     private Asignatura asignatura;
 
     public Asignatura getAsignatura() {
@@ -17,7 +17,7 @@ public class Clase implements Serializable{
         this.asignatura = asignatura;
     }
 
-    public Clase(String horaInicio, String horaFin, String dia, Asignatura asignatura) {
+    public Clase(String horaInicio, String horaFin, Dia dia, Asignatura asignatura) {
     	int x = generadorId;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
@@ -44,11 +44,11 @@ public class Clase implements Serializable{
         return horaFin;
     }
 
-    public void setDia(String dia) {
+    public void setDia(Dia dia) {
         this.dia = dia;
     }
 
-    public String getDia() {
+    public Dia getDia() {
         return dia;
     }
 }

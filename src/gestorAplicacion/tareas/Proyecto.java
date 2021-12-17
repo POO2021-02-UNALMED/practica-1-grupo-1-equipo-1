@@ -16,7 +16,7 @@ public class Proyecto extends Tarea {
 	 
 
 	@Override
-	void cambiarEstado() {
+	public void cambiarEstado() {
 		boolean completo = true;
 		boolean proceso = false;
 		for(int i=0; i<actividades.size() ; i++) {
@@ -36,7 +36,7 @@ public class Proyecto extends Tarea {
 		
 	}
 	
-	void dividirTarea(int numeroDeActividades) {
+	public void dividirTarea(int numeroDeActividades) {
 		for(int i=0; i<numeroDeActividades;i++) {
 			System.out.println("Ingresa el titulo de la actividad");
 			String tituloActividad = sc.nextLine();

@@ -56,4 +56,26 @@ public class Dia implements Serializable{
 	public void agregarTarea(Tarea tarea) {
 		this.tareas.add(tarea);
 	}
+	
+	
+	public String mostrarTareas() {
+		String mostrar = "";
+		for(int i=0;i<tareas.size();i++) {
+			mostrar+="------" + tareas.get(i).getTitulo()+"\n"; 
+		}
+		return mostrar;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

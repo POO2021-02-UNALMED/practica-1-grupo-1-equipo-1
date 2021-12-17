@@ -54,7 +54,7 @@ public abstract class Tarea implements Serializable{
 	 abstract void cambiarEstado();
 	 
 	 
-	 void agregarNota(String titulo, String descripcion) {
+	public void agregarNota(String titulo, String descripcion) {
 		 notas.add(new Nota(titulo, descripcion));
 	 }
 		

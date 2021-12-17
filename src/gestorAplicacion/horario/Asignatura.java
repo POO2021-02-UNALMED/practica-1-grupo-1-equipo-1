@@ -5,12 +5,10 @@ import java.io.Serializable;
 public class Asignatura implements Serializable{
     private String profesor;
     public String nombre;
-    private ArrayList<Clase> clases;
 
-    public Asignatura(String profesor, String nombre, ArrayList<Clase> clases) {
+    public Asignatura(String profesor, String nombre) {
         this.profesor = profesor;
         this.nombre = nombre;
-        this.clases = clases;
     }
 
     public String getProfesor() {
@@ -29,11 +27,5 @@ public class Asignatura implements Serializable{
         this.nombre = nombre;
     }
 
-    public ArrayList<Clase> getClases() {
-        return clases;
-    }
-
-    public void addClase(Clase clase) {//Agrega un objeto clase al arrayList clases
-        clases.add(clase);
-    }
+    
 }

@@ -5,7 +5,7 @@ public class Nota implements Serializable{
 	String titulo;
 	String decripcion;
 	
-	Nota(String titulo, String descripcion){
+	public Nota(String titulo, String descripcion){
 		this.titulo=titulo;
 		this.decripcion=descripcion;
 	}

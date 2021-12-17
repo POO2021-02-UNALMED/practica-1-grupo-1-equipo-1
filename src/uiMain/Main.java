@@ -30,8 +30,9 @@ public class Main {
 			System.out.println(" 4: Crear Clase");
 			System.out.println(" 5: Crear Proyecto");
 			System.out.println(" 6: Crear Dia");
-			System.out.println(" 7: ");
-			System.out.println(" 8:");
+			System.out.println(" 7: Dividir tarea");
+			System.out.println(" 8: Agregar nota");
+			System.out.println(" 9: Mostrar calendarios");
 			opcion = (int) readlong ();
 			
 			switch (opcion) {
@@ -41,7 +42,9 @@ public class Main {
 				case 4: nuevaClase (asist); break;
 				case 5: nuevoProyecto (asist); break;
 				case 6: nuevoDia (asist); break;
-
+				case 7: dividirProyecto(asist); break;
+				case 8: crearNota(asist); break;
+				case 9: mostrarCalendarios(asist);break;
 			}
 		} while (opcion != 0);
 	}
@@ -122,18 +125,8 @@ public class Main {
 		String prof = readln();
 		System.out.print ("Nombre de la asignatura: ");
 		String nombre = readln();
-		System.out.print("Inserte numero de dias a agregar: ");
-		int x = (int) readlong();
-		ArrayList<Clase> clases = new ArrayList<Clase> ();
 		
-		for(int i = 0; i < x+1; i ++) {
-			System.out.print ("Insertar Id de la clase que deseas agregar: ");
-			int id = (int) readlong();
-			Clase clase = asist.buscarClase(id);
-			clases.add(clase);
-		}
-		
-		asist.nuevaAsignatura(prof, nombre, clases);
+		asist.nuevaAsignatura(prof, nombre);
 	}
 	
 	static void nuevaClase(Asistente asist) {
@@ -141,15 +134,26 @@ public class Main {
 		String inicio = readln();
 		System.out.print ("Hora de fin: ");
 		String fin = readln();
-		System.out.print ("Dia de la clase(nombre del dia): ");
-		String dia =  readln();
+		System.out.print ("Etiqueta del dia: ");
+		String etiquetaDia = readln();
+		
+		Dia dia = asist.buscarDia(etiquetaDia);
+		
 		System.out.print ("Ingrese nombre de la asignatura asociada: ");
 		String asig = readln();
 		Asignatura as = asist.buscarAsignatura(asig);
 		
-		asist.nuevaClase(inicio, fin, dia, as);
+		Clase clase = asist.nuevaClase(inicio, fin, dia, as);
 		
+		System.out.println("Ingrese el nombre del calendario al que quieres asignarle esta clase");
+		String calen = readln();
+		
+		Calendario calendario = asist.buscarCalendario(calen);
+		calendario.agregarClase(clase);
 	}
+	
+	
+	
 	
 	static void nuevoProyecto(Asistente asist) {
 		System.out.print ("Titulo del proyecto: ");
@@ -208,4 +212,36 @@ public class Main {
 			asist.nuevoDia(tareas, fecha);
 		}
 	}
+	
+	static void dividirProyecto(Asistente asist) {
+		System.out.println("Inserte el titulo del proyecto que quiera dividir");
+		String tituloProy = readln();
+		System.out.println("Inserte el número de actividades en las que quiere dividir el proyecto:");
+		int numeroDivisiones = (int)readlong();
+		
+		Tarea proyecto = asist.buscarTarea(tituloProy);
+		
+		asist.dividirTarea((Proyecto)proyecto, numeroDivisiones);	
+	}
+	
+	static void crearNota(Asistente asist) {
+		System.out.println("Inserte el titulo de la nota que desea crear:");
+		String titulo = readln();
+		System.out.println("Ingrese la descripcion de la nota");
+		String descripcion = readln();
+		
+		System.out.println("Inserte el titulo de la tarea a la que quiere ingresar la nota");
+		String tituloTarea = readln();
+		
+		
+		Tarea tarea = asist.buscarTarea(tituloTarea);
+		asist.nuevaNota(titulo, descripcion, tarea);
+		
+	}
+	
+	static void mostrarCalendarios(Asistente asist) {
+		asist.mostrarCalendarios();
+	}
+	
+	
 }

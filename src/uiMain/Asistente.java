@@ -70,8 +70,8 @@ public class Asistente {
 		return null;
 	}
 	
-	public Asignatura nuevaAsignatura(String profesor, String nombre, ArrayList<Clase> clases) {
-		Asignatura asig = new Asignatura(profesor, nombre, clases);
+	public Asignatura nuevaAsignatura(String profesor, String nombre) {
+		Asignatura asig = new Asignatura(profesor, nombre);
 		asignaturas.add(asig);
 		return asig;
 	}
@@ -85,7 +85,7 @@ public class Asistente {
 		return null;
 	}
 	
-	public Clase nuevaClase(String Inicio, String Fin, String dia, Asignatura asig) {
+	public Clase nuevaClase(String Inicio, String Fin, Dia dia, Asignatura asig) {
 		Clase clase = new Clase(Inicio, Fin, dia, asig);
 		clases.add(clase);
 		return clase;
@@ -142,6 +142,22 @@ public class Asistente {
 		}
 		return null;		
 	}
+	
+	public void dividirTarea(Proyecto proy, int numero) {
+		proy.dividirTarea(numero);
+	}
+	
+	public void nuevaNota(String titulo, String descripcion, Tarea tarea) {
+		tarea.agregarNota(titulo, descripcion);
+		
+	}
+	
+	
+	
+	public void mostrarCalendarios() {
+		System.out.println(Calendario.mostrarCalendarios()); 
+	}
+	
 	
 
 }

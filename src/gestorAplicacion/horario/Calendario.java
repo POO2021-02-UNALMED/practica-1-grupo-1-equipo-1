@@ -11,17 +11,38 @@ public class Calendario implements Serializable{
 	public String nombre;
 	private ArrayList<Planificador> planificadores;
 	private ArrayList<Clase> clases;
+	private static ArrayList<Calendario> calendarios=new ArrayList<Calendario>();
 	
 	public Calendario(String nombre, ArrayList<Planificador> planificadores, ArrayList<Clase> clases) {
 		this.nombre = nombre;
 		this.planificadores = planificadores;
 		this.clases = clases;
+		calendarios.add(this);
 	}
 	
 	public Calendario(String nombre) {
 		this.nombre=nombre;
 		this.planificadores = new ArrayList<Planificador>(); 
 		this.clases = new ArrayList<Clase>();
+		calendarios.add(this);
+	}
+	
+	
+	public static String mostrarCalendarios() {
+		
+		String mostrar="--------------------\n";
+		for(int i=0; i<calendarios.size();i++) {
+			mostrar+=calendarios.get(i).getNombre()+"\n";
+			
+			for(int j=0; j<calendarios.get(i).planificadores.size();i++) {
+				mostrar+="--"+ calendarios.get(i).planificadores.get(j).toString() + "\n";
+				mostrar+=calendarios.get(i).planificadores.get(j).mostrarDias();
+			}
+		}
+		
+		
+		
+		return "asdfas";
 	}
 	
 	public void agregarTarea(int pl, int dia, Tarea tarea) { // pl: posicion planificador en la lista, dia: posicion dia en la lista, tarea: tarea a agregar
@@ -41,7 +62,7 @@ public class Calendario implements Serializable{
 		clases.get(cl).setHoraFin(fin);
 	}
 	
-	public void reagendarClase(int cl, String inicio, String fin, String dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
+	public void reagendarClase(int cl, String inicio, String fin, Dia dia) { //sobrecarga de reagendarClase para cambiar tambien su atributo dia
 		clases.get(cl).setHoraInicio(inicio);
 		clases.get(cl).setHoraFin(fin);
 		clases.get(cl).setDia(dia);
