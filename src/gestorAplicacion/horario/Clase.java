@@ -6,13 +6,23 @@ public class Clase {
     public String horaInicio;
     public String horaFin;
     public String dia;
+    private Asignatura asignatura;
 
-    public Clase(String horaInicio, String horaFin, String dia) {
+    public Asignatura getAsignatura() {
+        return asignatura;
+    }
+
+    public void setAsignatura(Asignatura asignatura) {
+        this.asignatura = asignatura;
+    }
+
+    public Clase(String horaInicio, String horaFin, String dia, Asignatura asignatura) {
     	int x = generadorId;
         this.horaInicio = horaInicio;
         this.horaFin = horaFin;
         this.dia = dia;
         this.id = x;
+        this.asignatura = asignatura;
         generadorId += 1;
         
     }

@@ -9,7 +9,16 @@ import gestorAplicacion.tareas.Tarea;
 public class Dia {
 	public String etiqueta; //nombre-descripcion que el usuario quiera dar al dia EJ: "Dia de trabajo"
 	protected ArrayList<Tarea> tareas; //lista de tareas correspondiente al dia
+	private String fecha;
 	
+	public String getFecha() {
+		return fecha;
+	}
+
+	public void setFecha(String fecha) {
+		this.fecha = fecha;
+	}
+
 	public Dia(String etiqueta, ArrayList<Tarea> tareas) { //constructor con etiqueta y tarea
 		this.etiqueta = etiqueta;
 		this.tareas = tareas;

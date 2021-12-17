@@ -56,6 +56,42 @@ public class Planificador {
 	public String getNombre() {
 		return nombre;
 	}
+
+	public ArrayList<Float> medidorCarga() {
+		final int mult = 3;
+		ArrayList<Float> params = new ArrayList<Float>();
+		for(Dia d : dias) {
+			float dayLoad = (float)d.tareas.size();
+			String dateS[] = d.getFecha().split("-");
+			int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12;
+			for(Dia d_ : dias) {
+				if(d != d_) {
+					String dateS_[] = d_.getFecha().split("-");
+					int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12;
+					if(date_ >= date) {
+						dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));
+					}
+				}
+			}
+			params.add(dayLoad);
+		}
+		return params;
+	}
+
+	public float medidorCarga(String fecha) {
+		final int mult = 3;
+		float dayLoad = 0.0f;
+		String dateS[] = fecha.split("-");
+		int date = Integer.parseInt(dateS[0]) + Integer.parseInt(dateS[1])*31 + Integer.parseInt(dateS[2])*30*12;
+		for(Dia d_ : dias) {
+			String dateS_[] = d_.getFecha().split("-");
+			int date_ = Integer.parseInt(dateS_[0]) + Integer.parseInt(dateS_[1])*31 + Integer.parseInt(dateS_[2])*30*12;
+			if(date_ >= date) {
+				dayLoad = dayLoad + (float)mult*((float)d_.tareas.size())/(((float)date_ - (float)date + 1.0f)*((float)date_ - (float)date + 1.0f));
+			}
+		}
+		return dayLoad;
+	}
 	
 	public String toString() {
 		return "Planificador: " + this.nombre + " ID: " + this.id;
