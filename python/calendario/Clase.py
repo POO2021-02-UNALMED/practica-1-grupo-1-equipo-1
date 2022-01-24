@@ -20,7 +20,7 @@ class clase:
     def setAsignatura(self, asignatura):
         self._asignatura = asignatura
 
-    def reagendarClase(self, dia, horaInicio, horaFinal):
+    def reagendarClase(self, dia, horaInicio, horaFinal): #funcion reagendar clase
         self._dia = dia
         self.horaInicio = horaInicio
         self.horaFinal = horaFinal
