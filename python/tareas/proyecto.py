@@ -6,4 +6,4 @@ class proyecto(tarea):
         self.actividades =[]
         super().__init__(titulo, asignatura, fechaDeEntrega)
 
-
+    
