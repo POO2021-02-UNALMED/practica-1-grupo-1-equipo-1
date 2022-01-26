@@ -1,5 +1,5 @@
-from estado import estado
-from nota import nota
+from tareas.estado import estado
+from tareas.nota import nota
 class tarea:
     def __init__(self, titulo, asignatura, fechaDeEntrega):
         self.titulo = titulo

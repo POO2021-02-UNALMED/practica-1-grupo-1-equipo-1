@@ -2,7 +2,7 @@ class clase:
     _generadorId = 0
     def __init__(self, horaInicio, horaFinal, asignatura, dia):
         self.id = clase._generadorId
-        clase.genaradorId += 1
+        clase._generadorId += 1
         self.horaInicio = horaInicio
         self.horaFinal = horaFinal
         self._asignatura = asignatura

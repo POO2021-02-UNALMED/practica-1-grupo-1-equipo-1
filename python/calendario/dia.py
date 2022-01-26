@@ -1,3 +1,5 @@
+from tareas.tarea import *
+
 class Dia():
 
     def __init__(self, etiqueta, fecha, tareas = []):
@@ -11,7 +13,7 @@ class Dia():
     def mostrarTarea(self):
         l = ""
         for t in self._tareas:
-            l += "---" + t._nombre + "\n"
+            l += "---" + t.GetTitulo() + "\n"
         return l 
 
     def setEtiqueta(self, eti):

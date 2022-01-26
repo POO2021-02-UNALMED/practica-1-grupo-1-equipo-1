@@ -1,8 +1,10 @@
+from Calendario.dia import Dia
+
 class Planificador():
     generadorID = 0 #fjkshf
-    def __init___(self, nombre, dias = []):
-        self._dias = dias
+    def __init__(self, nombre, dias = []):
         self._nombre = nombre
+        self._dias = dias
         self._ID = Planificador.generadorID
         Planificador.generadorID += 1
     
@@ -12,7 +14,7 @@ class Planificador():
     def mostrarDias(self):
         l = ""
         for d in self._dias:
-            l += "--" + d._nombre + "\n" + d.mostrarTarea()
+            l += "--Dia: " + d.getEtiqueta() + "\n" + d.mostrarTarea()
         return l 
 
     def setNombre(self, nombre):

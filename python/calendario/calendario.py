@@ -1,3 +1,7 @@
+import imp
+from Calendario.planificador import Planificador
+from persistencia.serializacion import Serializador
+
 class Calendario():
     calendarios = []
 
@@ -6,6 +10,7 @@ class Calendario():
         self._planificadores = planificadores
         self._clases = clases
         Calendario.calendarios.append(self)
+        Serializador.serializar(Calendario.calendarios)
 
     def agregarPlanificador(self, planificador):
         self._planificadores.append(planificador)
@@ -14,14 +19,14 @@ class Calendario():
     def mostrarPlanificadores(self):
         l = ""
         for p in self._planificadores:
-            l += "-" + p._nombre + "\n" + p.mostrarDias()
+            l += "-Planificador: " + p.getNombre() + "\n" + p.mostrarDias()
             return l
     
     @classmethod
     def mostrarCalendarios(cls):
         l = ""
         for c in cls.calendarios:
-            l += c._nombre + "\n" + c.mostrarPlanificadores()
+            l += 'Calendario: ' + c.getNombre() + "\n" + c.mostrarPlanificadores()
         return l
     
     def setNombre(self, nombre):
