@@ -1,5 +1,5 @@
 import imp
-from Calendario.planificador import Planificador
+from calendario.planificador import Planificador
 from persistencia.serializacion import Serializador
 
 class Calendario():
