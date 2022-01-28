@@ -1,8 +1,10 @@
+from python.revErrores.revErrores import revErrores
 from tareas.tarea import *
 
 class Dia():
 
     def __init__(self, etiqueta, fecha, tareas = []):
+        revErrores.formatoFecha(fecha)
         self._etiqueta = etiqueta
         self._fecha = fecha
         self._tareas = tareas
@@ -23,6 +25,7 @@ class Dia():
         return self._etiqueta
 
     def setFecha(self, fecha):
+        revErrores.formatoFecha
         self._fecha = fecha
 
     def getFecha(self):

@@ -2,7 +2,7 @@ from python.errorAplicacion.errorAplicacion import *
 from python.errorAplicacion.errorTexto.errorFormatoFecha import *
 from python.errorAplicacion.errorTexto.errorOrdenFecha import *
 
-class errDetectRutines():
+class revErrores():
     @classmethod
     def formatoFecha(cls, fecha):
         if len(fecha) != 10:
@@ -51,7 +51,7 @@ class errDetectRutines():
 
 if __name__ == "__main__":
     try:
-        errDetectRutines.compararFechas("13-12-7890", "14-12-7890")
+        revErrores.compararFechas("13-12-7890", "14-12-7890")
 
     except errorAplicacion as e:
         print(e)
