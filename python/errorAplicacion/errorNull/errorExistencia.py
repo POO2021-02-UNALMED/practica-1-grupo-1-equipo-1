@@ -1,5 +1,5 @@
 from python.errorAplicacion.errorNull.errorNull import *
 
 class errorOrdenFecha(errorNull):
-    def __init__(self, error):
+    def __init__(self):
         super().__init__("no se ha encontrado el valor especificado")
