@@ -43,7 +43,7 @@ class errDetectRutines():
         cmd2 = d+m*31+a*31*12
 
         if cmd1 > cmd2:
-            raise errorOrden("No se pueden utilizar fechas despues de la entrega")
+            raise errorOrdenFecha("No se pueden utilizar fechas despues de la entrega")
 
 
     def errorDeTipo():
