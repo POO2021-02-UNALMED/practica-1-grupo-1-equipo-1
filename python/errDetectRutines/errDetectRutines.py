@@ -1,15 +1,15 @@
 from python.errorAplicacion.errorAplicacion import *
-from python.errorAplicacion.errorFechas.errorFormato import *
-from python.errorAplicacion.errorFechas.errorOrden import *
+from python.errorAplicacion.errorTexto.errorFormatoFecha import *
+from python.errorAplicacion.errorTexto.errorOrdenFecha import *
 
 class errDetectRutines():
     @classmethod
     def formatoFecha(cls, fecha):
         if len(fecha) != 10:
-            raise errorFormato("Error al escribir la fecha")
+            raise errorFormatoFecha("Error al escribir la fecha")
             #return "Error al escribir la fecha"
         if fecha[2] != '-' or fecha[5] != '-':
-            raise errorFormato("Error al escribir el formato")
+            raise errorFormatoFecha("Error al escribir el formato")
             #return "Error al escribir el formato"
         try:
             d=int(fecha[:2])
@@ -17,14 +17,14 @@ class errDetectRutines():
             a=int(fecha[6:])
 
             if d > 31 or d < 1:
-                raise errorFormato("Error con los limites del dia")
+                raise errorFormatoFecha("Error con los limites del dia")
                 #return "Error con los limites del dia"
             if m < 1 or m > 12:
-                raise errorFormato("Error con los limites del mes")
+                raise errorFormatoFecha("Error con los limites del mes")
                 #return "Error con los limites del mes"
 
         except ValueError:
-            raise errorFormato("Error al escribir los numeros")
+            raise errorFormatoFecha("Error al escribir los numeros")
             #return "Error al escribir los numeros"
 
     @classmethod

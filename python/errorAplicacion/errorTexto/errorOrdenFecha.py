@@ -1,5 +1,5 @@
-from python.errorAplicacion.errorFechas.errorFechas import *
+from python.errorAplicacion.errorTexto.errorTexto import *
 
-class errorOrden(errorFechas):
+class errorOrdenFecha(errorTexto):
     def __init__(self, error):
         super().__init__("error de orden de fechas: " + error)
