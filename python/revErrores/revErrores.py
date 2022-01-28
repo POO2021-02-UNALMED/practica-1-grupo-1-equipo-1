@@ -48,13 +48,3 @@ class revErrores():
 
     def errorDeTipo():
         pass
-
-if __name__ == "__main__":
-    try:
-        revErrores.compararFechas("13-12-7890", "14-12-7890")
-
-    except errorAplicacion as e:
-        print(e)
-
-    else:
-        print("works!!")
