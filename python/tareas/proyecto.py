@@ -1,7 +1,7 @@
 
-from tarea import tarea
-from actividad import actividad
-from estado import estado
+from tareas.tarea import tarea
+from tareas.actividad import actividad
+from tareas.estado import estado
 
 class proyecto(tarea): 
     def __init__(self, titulo, asignatura, fechaDeEntrega):

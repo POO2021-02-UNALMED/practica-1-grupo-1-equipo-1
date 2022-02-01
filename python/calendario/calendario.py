@@ -1,16 +1,16 @@
-import imp
-from calendario.planificador import Planificador
+from Calendario.planificador import Planificador
 from persistencia.serializacion import Serializador
 
 class Calendario():
     calendarios = []
 
     def __init__ (self, nombre, planificadores = [], clases = []):
+        #from python.persistencia.serializacion import Serializador
         self._nombre = nombre
         self._planificadores = planificadores
         self._clases = clases
         Calendario.calendarios.append(self)
-        Serializador.serializar(Calendario.calendarios)
+        Serializador.guardarCalendarios(Calendario.calendarios)
 
     def agregarPlanificador(self, planificador):
         self._planificadores.append(planificador)
@@ -24,6 +24,13 @@ class Calendario():
     
     @classmethod
     def mostrarCalendarios(cls):
+        #from python.persistencia.serializacion import Serializador
+        Serializador.calendariosGuardados() #sera necesario usar esta funcion al iniciar para no perder los objetos guardados anteriormente
+        Calendario.calendarios += Serializador.calen
+        Serializador.asignaturasGuardadas()
+        Serializador.clasesGuardadas()
+        Serializador.notasGuardadas()
+
         l = ""
         for c in cls.calendarios:
             l += 'Calendario: ' + c.getNombre() + "\n" + c.mostrarPlanificadores()

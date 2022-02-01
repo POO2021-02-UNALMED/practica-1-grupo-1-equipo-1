@@ -1,3 +1,5 @@
+from persistencia.serializacion import Serializador
+
 class clase:
     _generadorId = 0
     def __init__(self, horaInicio, horaFinal, asignatura, dia):
@@ -7,6 +9,8 @@ class clase:
         self.horaFinal = horaFinal
         self._asignatura = asignatura
         self._dia = dia
+        Serializador.clases.append(self)
+        Serializador.guardarClases(Serializador.clases)
 
     def getDia(self):
         return self._dia

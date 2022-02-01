@@ -1,5 +1,7 @@
 from tareas.estado import estado
 from tareas.nota import nota
+from persistencia.serializacion import Serializador
+
 class tarea:
     def __init__(self, titulo, asignatura, fechaDeEntrega):
         self.titulo = titulo
@@ -7,7 +9,8 @@ class tarea:
         self.fechaDeEntrega = fechaDeEntrega
         self.estado = estado.sinCompletar.value
         self.notas = []
-
+        Serializador.tar.append(self)
+        Serializador.guardarTareas(Serializador.tar)
 
 
     def reagendarTarea(self, nuevaFecha):

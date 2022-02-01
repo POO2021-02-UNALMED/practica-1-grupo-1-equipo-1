@@ -1,5 +1,6 @@
 from python.revErrores.revErrores import revErrores
 from tareas.tarea import *
+from persistencia.serializacion import Serializador
 
 class Dia():
 
@@ -8,11 +9,16 @@ class Dia():
         self._etiqueta = etiqueta
         self._fecha = fecha
         self._tareas = tareas
+        Serializador.dias.append(self)
+        Serializador.guardarDias(Serializador.dias)
     
     def agregarTarea(self, tarea):
         self._tareas.append(tarea)
     
     def mostrarTarea(self):
+        Serializador.diasGuardados()
+        Serializador.tareasGuardadas()
+
         l = ""
         for t in self._tareas:
             l += "---" + t.GetTitulo() + "\n"

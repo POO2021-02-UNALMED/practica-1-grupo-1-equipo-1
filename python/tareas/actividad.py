@@ -1,5 +1,5 @@
-from proyecto import proyecto
-from tarea import tarea
+from tareas.proyecto import proyecto
+from tareas.tarea import tarea
 
 class actividad(proyecto, tarea):
     def __init__(self, titulo, asignatura, fechaDeEntrega, estado):
