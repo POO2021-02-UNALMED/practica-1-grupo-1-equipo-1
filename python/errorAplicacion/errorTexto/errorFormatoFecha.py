@@ -1,4 +1,4 @@
-from python.errorAplicacion.errorTexto.errorTexto import *
+from errorAplicacion.errorTexto.errorTexto import *
 
 class errorFormatoFecha(errorTexto):
     def __init__(self, error):

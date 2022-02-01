@@ -1,6 +1,6 @@
-from python.errorAplicacion.errorAplicacion import *
-from python.errorAplicacion.errorTexto.errorFormatoFecha import *
-from python.errorAplicacion.errorTexto.errorOrdenFecha import *
+from errorAplicacion.errorAplicacion import *
+from errorAplicacion.errorTexto.errorFormatoFecha import *
+from errorAplicacion.errorTexto.errorOrdenFecha import *
 
 class revErrores():
     @classmethod

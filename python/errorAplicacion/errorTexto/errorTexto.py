@@ -1,4 +1,4 @@
-from python.errorAplicacion.errorAplicacion import *
+from errorAplicacion.errorAplicacion import *
 
 class errorTexto(errorAplicacion):
     def __init__(self, error):
