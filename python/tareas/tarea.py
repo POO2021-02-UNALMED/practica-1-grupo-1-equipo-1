@@ -8,6 +8,8 @@ class tarea:
         self.estado = estado.sinCompletar.value
         self.notas = []
 
+
+
     def reagendarTarea(self, nuevaFecha):
         self.fechaDeEntrega = nuevaFecha
 

@@ -1,10 +1,10 @@
 import pickle
-from Calendario.calendario import *
-from Calendario.dia import Dia
-from Calendario.planificador import Planificador
+from calendario.calendario import *
+from calendario.dia import Dia
+from calendario.planificador import Planificador
 from tareas.tarea import *
-from Calendario.asignatura import asignatura
-from Calendario.Clase import clase
+from calendario.asignatura import asignatura
+from calendario.Clase import clase
 
 
 class Serializador():
