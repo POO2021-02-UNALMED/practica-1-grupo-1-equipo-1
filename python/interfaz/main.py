@@ -1,7 +1,8 @@
-from multiprocessing.dummy import active_children
+
 from tkinter import *
 from ventana import Ventana
 from menuPrincipal import MenuPrincipal
+from FieldFrame import FieldFrame
 
 if __name__ == "__main__":
 
@@ -42,13 +43,16 @@ if __name__ == "__main__":
     P6 = Ventana(P2, bg="red", width=210, height=200)
     P6.grid(row=2, column=1)
 
-    ventanaSistema = Frame(window, width=100, height=100)
-    ventanaSistema.config(bg="black", padx=10, pady=10)
+    ventanaSistema = Frame(window, width=300, height=500)
+    ventanaSistema.config(bg="white", padx=10, pady=100)
+
+
+    tituloOperacion = Label(ventanaSistema, text="Escoge una operacion a realizar", bg="grey",width=68, height=3)
+    tituloOperacion.grid(row=1, column=1)
+    DescripcionOperacion = Label(ventanaSistema, text="s", bg="white").grid(row=2, column=1)
 
 
     menubar = MenuPrincipal(window, "Inicio")
-
-
 
 
 
@@ -62,11 +66,43 @@ if __name__ == "__main__":
     def ingresarAlSistema():
         v1.cerrarVentana()
         ventanaSistema.grid(row=1, column=1)
-
+        frameDatos = Frame(ventanaSistema)
+        frameDatos.grid(row=3, column=1)
         def salirAlInicio():
             ventanaSistema.grid_forget()
             v1.mostrarVentana()
             window['menu'] = menubar
+
+
+        def crearAsignatura():
+            frameDatos = FieldFrame(ventanaSistema, "asignatura")
+            frameDatos.grid(row=3, column=1)
+
+
+        def crearClase():
+            frameDatos = FieldFrame(ventanaSistema, "clase")
+            frameDatos.grid(row=3, column=1)
+        
+        def crearDia():
+            frameDatos = FieldFrame(ventanaSistema, "dia")
+            frameDatos.grid(row=3, column=1)
+
+        def crearPlanificador():
+            frameDatos = FieldFrame(ventanaSistema, "planificador")
+            frameDatos.grid(row=3, column=1)
+
+        def crearCalendario():
+            frameDatos = FieldFrame(ventanaSistema, "calendario")
+            frameDatos.grid(row=3, column=1)
+
+        def crearNota():
+            frameDatos = FieldFrame(ventanaSistema, "nota")
+            frameDatos.grid(row=3, column=1)
+        
+        def crearProyecto():
+            frameDatos = FieldFrame(ventanaSistema, "proyecto")
+            frameDatos.grid(row=3, column=1)
+
 
 
         menubar2 = Menu(window)
@@ -75,47 +111,39 @@ if __name__ == "__main__":
         archivo.add_command(label = "Aplicación")
         archivo.add_command(label = "Salir", command=salirAlInicio)
 
-
-
-
         procesosYConsultas = Menu(menubar2)
 
         Asignaturas = Menu(procesosYConsultas)
-        Asignaturas.add_command(label = "Crear asignatura")
+        Asignaturas.add_command(label = "Crear asignatura", command=crearAsignatura)
 
         Clase = Menu(procesosYConsultas)
-        Clase.add_command(label = "Crear clase")
+        Clase.add_command(label = "Crear clase", command=crearClase)
         Clase.add_command(label = "Reagendar clase")
 
         dia = Menu(procesosYConsultas)
-        dia.add_command(label = "Crear dia")
+        dia.add_command(label = "Crear dia", command=crearDia)
         dia.add_command(label = "Agregar tareas")
         dia.add_command(label = "Mostrar tareas")
 
         planificador = Menu(procesosYConsultas)
-        planificador.add_command(label = "Crear planificador")
+        planificador.add_command(label = "Crear planificador", command=crearPlanificador)
         planificador.add_command(label = "Agregar días")
         planificador.add_command(label = "Mostrar días")
 
 
 
         calendario = Menu(procesosYConsultas)
-        calendario.add_command(label = "Crear calendario")
+        calendario.add_command(label = "Crear calendario", command=crearCalendario)
         calendario.add_command(label = "Agregar planificador")
         calendario.add_command(label = "Mostrar planificadores")
         calendario.add_command(label = "Mostrar calendarios")
 
 
-        tarea = Menu(procesosYConsultas)
-        tarea.add_command(label = "Crear tarea")
-        tarea.add_command(label = "Reagendar tarea")
-        tarea.add_command(label = "Cambiar estado")
-        tarea.add_command(label = "Agregar nota")
 
 
 
         proyecto = Menu(procesosYConsultas)
-        proyecto.add_command(label = "Crear proyecto")
+        proyecto.add_command(label = "Crear proyecto", command=crearProyecto)
         proyecto.add_command(label = "Dividir tarea")
 
         
@@ -127,7 +155,6 @@ if __name__ == "__main__":
         procesosYConsultas.add_cascade(menu = planificador, label="Planificador")
         procesosYConsultas.add_cascade(menu = calendario, label="Calendario")
         procesosYConsultas.add_separator()
-        procesosYConsultas.add_cascade(menu = tarea, label="Tarea")
         procesosYConsultas.add_cascade(menu = proyecto, label="Proyecto")
 
 
