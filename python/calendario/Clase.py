@@ -1,6 +1,6 @@
 from persistencia.serializacion import Serializador
 
-class clase:
+class clase: #estas son las clases asociadas a cada asignatura y ayudan a saber que dia habra que entregar una tarea
     _generadorId = 0
     def __init__(self, horaInicio, horaFinal, asignatura, dia):
         self.id = clase._generadorId

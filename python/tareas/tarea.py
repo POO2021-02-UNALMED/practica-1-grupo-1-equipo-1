@@ -1,7 +1,7 @@
 from tareas.estado import estado
 from tareas.nota import nota
 from persistencia.serializacion import Serializador
-
+#los objetos de esta clase son las tareas a realizar que seran guardadas dentro de los dias
 class tarea:
     def __init__(self, titulo, asignatura, fechaDeEntrega):
         self.titulo = titulo
@@ -13,14 +13,13 @@ class tarea:
         Serializador.guardarTareas(Serializador.tar)
 
 
-    def reagendarTarea(self, nuevaFecha):
+    def reagendarTarea(self, nuevaFecha): #cambia la fecha de la tarea
         self.fechaDeEntrega = nuevaFecha
-
     
-    def cambiarEstado(self):
+    def cambiarEstado(self): #cambia el estado de la tarea de Sincompletar a completada
         self.estado = estado.completada.value
 
-    def agergarNotas(self, titulo, descripcion):
+    def agergarNotas(self, titulo, descripcion): #se crea un objeto de tipo nota para tener una especie de descripcion para la tarea
         notaActual = nota(titulo, descripcion)
 
         self.notas.append(notaActual)

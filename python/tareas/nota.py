@@ -1,5 +1,6 @@
 from persistencia.serializacion import Serializador
 
+#os objetos de esta clase siren como anotaciones o puntos a tener en cuenta en las tareas
 class nota:
     def __init__(self, titulo, descripcion):
         self.titulo = titulo

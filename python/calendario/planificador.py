@@ -1,7 +1,7 @@
 from Calendario.dia import Dia
 from persistencia.serializacion import Serializador
 
-class Planificador():
+class Planificador(): #El calendario se encarga de almacenar los dias para ser organizados
     generadorID = 0 #este atributo se usara para asignarle un id automatico a cada planificador
     def __init__(self, nombre, dias = []):
         self._nombre = nombre
@@ -14,7 +14,7 @@ class Planificador():
     def agregarDia(self, dia):
         self._dias.append(dia)
     
-    def mostrarDias(self):
+    def mostrarDias(self): #muestra los dias dentro del planificador
         Serializador.PlanificadoresGuardados()
 
         l = ""

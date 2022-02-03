@@ -1,5 +1,6 @@
 from persistencia.serializacion import Serializador
 
+#a esta clase pertenecen las asignaturas que van asociadas a una tarea
 class  asignatura:
     def __init__(self, profesor, nombre):
         self._profesor = profesor
