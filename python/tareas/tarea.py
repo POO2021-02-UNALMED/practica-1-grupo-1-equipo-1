@@ -1,9 +1,11 @@
 from tareas.estado import estado
 from tareas.nota import nota
 from persistencia.serializacion import Serializador
+from revErrores.revErrores import revErrores
 #los objetos de esta clase son las tareas a realizar que seran guardadas dentro de los dias
 class tarea:
     def __init__(self, titulo, asignatura, fechaDeEntrega):
+        revErrores.formatoFecha(fechaDeEntrega)
         self.titulo = titulo
         self.asignatura = asignatura
         self.fechaDeEntrega = fechaDeEntrega

@@ -6,7 +6,6 @@ from menuPrincipal import MenuPrincipal
 if __name__ == "__main__":
 
 
-
     #Creación de la ventana principal y configuracion general
 
 
