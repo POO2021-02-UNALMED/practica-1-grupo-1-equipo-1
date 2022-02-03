@@ -1,4 +1,4 @@
-from python.errorAplicacion.errorNull.errorNull import *
+from errorAplicacion.errorNull.errorNull import *
 
 class errorOrdenFecha(errorNull):
     def __init__(self):

@@ -1,4 +1,4 @@
-from Calendario.planificador import Planificador
+from calendario.planificador import Planificador
 from persistencia.serializacion import Serializador
 
 class Calendario(): #Esta clase es la base de toda la aplicion, guarda todos los planificadores y tambien todos los objetos creados

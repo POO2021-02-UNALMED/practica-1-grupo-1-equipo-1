@@ -1,4 +1,4 @@
-from python.revErrores.revErrores import revErrores
+from revErrores.revErrores import revErrores
 from tareas.tarea import *
 from persistencia.serializacion import Serializador
 

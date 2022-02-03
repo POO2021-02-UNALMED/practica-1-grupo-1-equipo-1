@@ -13,37 +13,37 @@ class Serializador():
     #hay dos tipos de funciones una guarda los objetos en archivos y la otra los deserializa
 
     def guardarCalendarios(objeto):
-        from Calendario.calendario import Calendario
+        from calendario.calendario import Calendario
         picklefile = open('ObjetosCalendario', 'wb')
         pickle.dump(objeto, picklefile)
         picklefile.close
 
     def calendariosGuardados():
-        from Calendario.calendario import Calendario
+        from calendario.calendario import Calendario
         picklefile = open('ObjetosCalendario', 'rb')
         Serializador.calen += pickle.load(picklefile)
         picklefile.close
 
     def guardarPlanificadores(objeto):
-        from Calendario.planificador import Planificador
+        from calendario.planificador import Planificador
         picklefile = open('ObjetosPlanificador', 'wb')
         pickle.dump(objeto, picklefile)
         picklefile.close
 
     def PlanificadoresGuardados():
-        from Calendario.planificador import Planificador
+        from calendario.planificador import Planificador
         picklefile = open('ObjetosPlanificador', 'rb')
         Serializador.plan += pickle.load(picklefile)
         picklefile.close
 
     def guardarDias(objeto):
-        from Calendario.dia import Dia
+        from calendario.dia import Dia
         picklefile = open('ObjetosDia', 'wb')
         pickle.dump(objeto, picklefile)
         picklefile.close
 
     def diasGuardados():
-        from Calendario.dia import Dia
+        from calendario.dia import Dia
         picklefile = open('ObjetosDia', 'rb')
         Serializador.dias += pickle.load(picklefile)
         picklefile.close
@@ -61,25 +61,25 @@ class Serializador():
         picklefile.close
 
     def guardarClases(objeto):
-        from Calendario.Clase import clase
+        from calendario.Clase import clase
         picklefile = open('ObjetosClase', 'wb')
         pickle.dump(objeto, picklefile)
         picklefile.close
 
     def clasesGuardadas():
-        from Calendario.Clase import clase
+        from calendario.Clase import clase
         picklefile = open('ObjetosClase', 'rb')
         Serializador.clases += pickle.load(picklefile)
         picklefile.close
 
     def guardarAsignaturas(objeto):
-        from Calendario.asignatura import asignatura
+        from calendario.asignatura import asignatura
         picklefile = open('ObjetosAsignatura', 'wb')
         pickle.dump(objeto, picklefile)
         picklefile.close
 
     def asignaturasGuardadas():
-        from Calendario.asignatura import asignatura
+        from calendario.asignatura import asignatura
         picklefile = open('ObjetosAsignatura', 'rb')
         Serializador.asig += pickle.load(picklefile)
         picklefile.close
