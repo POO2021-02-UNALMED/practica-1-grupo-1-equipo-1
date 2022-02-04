@@ -131,7 +131,7 @@ class FieldFrame(Frame):
             Label1 = Label(self, text="Escoge una opción")
             Label1.grid(row=2, column=1)
 
-        borrar = Button(self, command=self.borrarConsulta, width=9, height=1, text="Borrar consulta")
+        borrar = Button(self, command=self.borrarConsulta, width=15, height=1, text="Enviar consulta")
         borrar.grid(row=fila, column=2)
 
 
@@ -139,6 +139,7 @@ class FieldFrame(Frame):
 
     def borrarConsulta(self):
         self.grid_forget()
+        
 
     
 

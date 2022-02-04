@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 from ventana import Ventana
 
@@ -12,10 +13,12 @@ class MenuPrincipal(Menu):
                 window.destroy()
 
             
+        def aplicacion():
+            messagebox.showinfo("Calendario", "En esta aplicación podrás crear, organizar y manejar tus horarios y actividades por medio de calendarios")
 
 
         if(args[0]=="Inicio"):    
             self.add_cascade(menu = menu1, label="Opciones")
-            menu1.add_command(label = "Descripcion")
+            menu1.add_command(label = "Descripcion", command=aplicacion)
             menu1.add_command(label = "Salir", command=cerrarApp)
 
