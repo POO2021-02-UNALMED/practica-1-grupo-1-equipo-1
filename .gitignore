@@ -10,3 +10,15 @@
 /python/persistencia/__pycache__
 /python/revErrores/__pycache__
 /python/tareas/__pycache__
+python/Calendario/__pycache__/planificador.cpython-39.pyc
+python/interfaz/__pycache__/FieldFrame.cpython-39.pyc
+python/interfaz/__pycache__/menuPrincipal.cpython-39.pyc
+python/interfaz/__pycache__/ventana.cpython-39.pyc
+python/ObjetosAsignatura
+python/ObjetosCalendario
+python/ObjetosClase
+python/ObjetosAsignatura
+python/ObjetosDia
+python/ObjetosNota
+python/ObjetosPlanificador
+python/ObjetosTarea
