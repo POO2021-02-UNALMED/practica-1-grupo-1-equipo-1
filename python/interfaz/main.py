@@ -3,13 +3,14 @@ from tkinter import *
 from ventana import Ventana
 from menuPrincipal import MenuPrincipal
 from FieldFrame import FieldFrame
+from calendario.calendario import Calendario
 
 if __name__ == "__main__":
 
 
     #Creación de la ventana principal y configuracion general
 
-
+    Calendario.mostrarCalendarios()
 
     window = Tk()
     window.title("Proyecto 2")
