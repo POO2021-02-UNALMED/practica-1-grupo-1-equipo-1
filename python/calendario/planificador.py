@@ -1,4 +1,4 @@
-from calendario.dia import Dia
+from Calendario.dia import Dia
 from persistencia.serializacion import Serializador
 
 class Planificador(): #El calendario se encarga de almacenar los dias para ser organizados
