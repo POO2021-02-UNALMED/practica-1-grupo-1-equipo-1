@@ -5,6 +5,7 @@
 /src/uiMain/Test.java
 python/testMain.py
 python/Calendario/__pycache__
+python/calendario/__pycache__
 python/errorAplicacion/__pycache__
 python/interfaz/__pycache__
 python/persistencia/__pycache__
