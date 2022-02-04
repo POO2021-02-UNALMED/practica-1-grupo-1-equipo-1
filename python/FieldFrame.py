@@ -1,6 +1,9 @@
 
+from shutil import ExecError
 from tkinter import *
-
+from revErrores.revErrores import revErrores
+from errorAplicacion.errorAplicacion import errorAplicacion
+from tkinter import messagebox
 
 
 class FieldFrame(Frame):
@@ -68,14 +71,14 @@ class FieldFrame(Frame):
         elif(accion=="dia"):
             Label1 = Label(self, text="Etiqueta:")
             Label1.grid(row=fila, column=1)
-            etiqueta = Entry(self)
-            etiqueta.grid(row=fila, column=2)
+            self.etiqueta = Entry(self)
+            self.etiqueta.grid(row=fila, column=2)
             fila=fila+1
 
             label2 = Label(self, text="Fecha:")
             label2.grid(row=fila, column=1)
-            fecha = Entry(self)
-            fecha.grid(row=fila, column=2)
+            self.fecha = Entry(self)
+            self.fecha.grid(row=fila, column=2)
             fila=fila+1
 
         elif(accion=="planificador"):
@@ -111,20 +114,20 @@ class FieldFrame(Frame):
 
             Label1 = Label(self, text="titulo:")
             Label1.grid(row=fila, column=1)
-            titulo = Entry(self)
-            titulo.grid(row=fila, column=2)
+            self.titulo = Entry(self)
+            self.titulo.grid(row=fila, column=2)
             fila=fila+1
 
             label2 = Label(self, text="Asignatura:")
             label2.grid(row=fila, column=1)
-            asignatura = Entry(self)
-            asignatura.grid(row=fila, column=2)
+            self.asignatura = Entry(self)
+            self.asignatura.grid(row=fila, column=2)
             fila=fila+1
 
             label3 = Label(self, text="Fecha de entrega:")
             label3.grid(row=fila, column=1)
-            fechaDeEntrega = Entry(self)
-            fechaDeEntrega.grid(row=fila, column = 2)
+            self.fechaDeEntrega = Entry(self)
+            self.fechaDeEntrega.grid(row=fila, column = 2)
             fila=fila+1
 
         else:
@@ -138,6 +141,24 @@ class FieldFrame(Frame):
 
 
     def borrarConsulta(self):
+        if self.accion == "dia":
+            try:
+                if self.etiqueta.get() == "" or self.fecha.get() == "":
+                    raise errorAplicacion("campos de texto vacios")
+                revErrores.formatoFecha(self.fecha.get())
+            except errorAplicacion as e:
+                error = messagebox.showinfo(title="Manejo de errores de la Aplicación",  message=e.toString())
+                print(e)
+                return
+        elif self.accion == "proyecto":
+            try:
+                if self.titulo.get() == "" or self.asignatura.get() == "" or self.fechaDeEntrega.get() == "":
+                    raise errorAplicacion("campos de texto vacios")
+                revErrores.formatoFecha(self.fechaDeEntrega.get())
+            except errorAplicacion as e:
+                error = messagebox.showinfo(title="Manejo de errores de la Aplicación",  message=e.toString())
+                print(e)
+                return
         self.grid_forget()
         
 
